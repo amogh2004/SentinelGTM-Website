@@ -112,7 +112,7 @@ export function Hero() {
             letterSpacing: "-0.02em",
           }}
         >
-          Click to your best{" "}
+          Click to{" "}
           <span
             style={{
               background: "linear-gradient(135deg, #c1c1ff 0%, #cebdff 60%, #fff 100%)",
@@ -121,7 +121,7 @@ export function Hero() {
               backgroundClip: "text",
             }}
           >
-            SaaS partners.
+            Customer.
           </span>
         </h2>
 
