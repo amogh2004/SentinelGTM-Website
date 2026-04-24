@@ -68,7 +68,7 @@ export function Footer() {
           className="font-body text-[11px]"
           style={{ color: "rgba(240,238,238,0.15)" }}
         >
-          © 2026 Sentinel GTM · Built with Claude
+          © 2026 Sentinel GTM
         </p>
       </div>
     </footer>

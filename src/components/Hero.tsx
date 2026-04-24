@@ -112,7 +112,7 @@ export function Hero() {
             letterSpacing: "-0.02em",
           }}
         >
-          1 click to your best{" "}
+          Click to your best{" "}
           <span
             style={{
               background: "linear-gradient(135deg, #c1c1ff 0%, #cebdff 60%, #fff 100%)",

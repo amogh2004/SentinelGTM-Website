@@ -126,8 +126,8 @@ export function Pipeline() {
 
         <div className="overflow-x-auto scroll-hide pb-4">
           <div
-            className="flex items-start"
-            style={{ minWidth: "max-content", padding: "0 16px", gap: 0 }}
+            className="flex items-start justify-center"
+            style={{ minWidth: "max-content", padding: "0 16px", gap: 0, margin: "0 auto" }}
           >
             {STAGES.map((stage, i) => (
               <StageItem
