@@ -128,8 +128,7 @@ export function Hero() {
             letterSpacing: "-0.02em",
           }}
         >
-          Find your best SaaS partners.
-          <br />
+          1 click to your best{" "}
           <span
             style={{
               background: "linear-gradient(135deg, #c1c1ff 0%, #cebdff 60%, #fff 100%)",
@@ -138,7 +137,7 @@ export function Hero() {
               backgroundClip: "text",
             }}
           >
-            Reach them automatically.
+            SaaS partners.
           </span>
         </h2>
 
