@@ -76,23 +76,6 @@ export function Hero() {
       />
 
       <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
-        {/* Badge */}
-        <div
-          className="animate-fade-in inline-flex items-center gap-2 mb-8 px-3.5 py-1.5 rounded-full border text-[11px] font-body font-medium uppercase tracking-[0.28em]"
-          style={{
-            borderColor: "rgba(193,193,255,0.18)",
-            background: "rgba(93,95,239,0.08)",
-            color: "#c1c1ff",
-            animationDelay: "0ms",
-          }}
-        >
-          <span
-            className="w-1.5 h-1.5 rounded-full bg-[#c1c1ff] animate-flow-pulse"
-            style={{ animationDelay: "0ms" }}
-          />
-          Private Beta
-        </div>
-
         {/* Wordmark */}
         <div
           className="animate-fade-in mb-2"
