@@ -1,4 +1,4 @@
-import logoSvg from "../assets/logo.svg";
+import logoSvg from "../assets/logo-new.png";
 
 export function Footer() {
   return (
@@ -15,7 +15,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-6 text-center">
         {/* Wordmark */}
         <div className="flex flex-col items-center gap-3">
-          <img src={logoSvg} alt="Sentinel logo" className="w-12 h-12 rounded-xl opacity-80" />
+          <img src={logoSvg} alt="Sentinel logo" className="w-12 h-12 opacity-80" />
           <div>
             <p
               className="font-display font-black text-2xl text-white tracking-tighter leading-none"
