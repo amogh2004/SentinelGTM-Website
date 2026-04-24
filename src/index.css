@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #080808;
+    --color-surface: #111111;
+    --color-card: #161616;
+    --color-primary: #c1c1ff;
+    --color-primary-vivid: #5d5fef;
+    --color-border: rgba(193, 193, 255, 0.08);
+    --color-ink: #f0eeee;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #080808;
+    color: #f0eeee;
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(193, 193, 255, 0.25);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  /* Scroll-triggered reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered reveal via CSS custom property */
+  .reveal-delay-1 { transition-delay: 80ms; }
+  .reveal-delay-2 { transition-delay: 160ms; }
+  .reveal-delay-3 { transition-delay: 240ms; }
+  .reveal-delay-4 { transition-delay: 320ms; }
+
+  /* Card hover glow border */
+  .card-glow {
+    position: relative;
+    background: #161616;
+    border: 1px solid rgba(193, 193, 255, 0.08);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-glow:hover {
+    border-color: rgba(193, 193, 255, 0.22);
+    box-shadow: 0 0 40px rgba(93, 95, 239, 0.08), inset 0 1px 0 rgba(193, 193, 255, 0.05);
+  }
+
+  /* Gradient shimmer for CTA button */
+  .btn-primary {
+    background: linear-gradient(135deg, #7c7cff 0%, #5d5fef 50%, #c1c1ff 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-position: right center;
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 0 40px rgba(193, 193, 255, 0.25), 0 8px 32px rgba(93, 95, 239, 0.2);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: #080808; }
+  ::-webkit-scrollbar-thumb { background: rgba(70, 69, 85, 0.5); border-radius: 2px; }
+
+  /* Hide scrollbar for pipeline */
+  .scroll-hide::-webkit-scrollbar { display: none; }
+  .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Pipeline connector animated line */
+  .connector-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(193,193,255,0.2) 0%, rgba(193,193,255,0.05) 100%);
+    flex-shrink: 0;
+  }
+
+  /* Step number badge */
+  .step-badge {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(193, 193, 255, 0.4);
+    line-height: 1;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, #c1c1ff 0%, #cebdff 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Noise overlay for depth */
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.4;
+  }
+}
