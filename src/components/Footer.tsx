@@ -1,3 +1,5 @@
+import logoSvg from "../assets/logo.svg";
+
 export function Footer() {
   return (
     <footer className="py-16 px-6 relative">
@@ -12,19 +14,22 @@ export function Footer() {
 
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-6 text-center">
         {/* Wordmark */}
-        <div>
-          <p
-            className="font-display font-black text-2xl text-white tracking-tighter leading-none"
-            style={{ letterSpacing: "-0.04em" }}
-          >
-            SENTINEL
-          </p>
-          <p
-            className="font-body text-[10px] uppercase tracking-[0.35em] mt-1"
-            style={{ color: "rgba(193,193,255,0.35)" }}
-          >
-            GTM Intelligence
-          </p>
+        <div className="flex flex-col items-center gap-3">
+          <img src={logoSvg} alt="Sentinel logo" className="w-12 h-12 rounded-xl opacity-80" />
+          <div>
+            <p
+              className="font-display font-black text-2xl text-white tracking-tighter leading-none"
+              style={{ letterSpacing: "-0.04em" }}
+            >
+              SENTINEL
+            </p>
+            <p
+              className="font-body text-[10px] uppercase tracking-[0.35em] mt-1"
+              style={{ color: "rgba(193,193,255,0.35)" }}
+            >
+              GTM Intelligence
+            </p>
+          </div>
         </div>
 
         {/* Tagline */}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import logoSvg from "../assets/logo.svg";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,7 +20,8 @@ export function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Wordmark */}
-        <a href="#" className="flex items-baseline gap-2.5 group" style={{ textDecoration: "none" }}>
+        <a href="#" className="flex items-center gap-3 group" style={{ textDecoration: "none" }}>
+          <img src={logoSvg} alt="Sentinel logo" className="w-8 h-8 rounded-lg" />
           <span className="font-display font-black text-xl text-white tracking-tighter leading-none group-hover:text-[#c1c1ff] transition-colors duration-200">
             SENTINEL
           </span>
