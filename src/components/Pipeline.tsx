@@ -50,7 +50,7 @@ function StageItem({ stage, delay, isLast }: { stage: Stage; delay: number; isLa
 
         <span
           className="font-body text-[11px] text-center leading-snug"
-          style={{ color: "rgba(240,238,238,0.32)" }}
+          style={{ color: "rgba(240,238,238,0.58)" }}
         >
           {desc}
         </span>
