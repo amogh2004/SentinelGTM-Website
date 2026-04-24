@@ -47,9 +47,10 @@ function DotGrid() {
 }
 
 const STATS = [
-  "Partner discovery in minutes",
-  "Claude-drafted outreach",
-  "Custom POC per reply",
+  { value: "4–8 days", label: "to reach a contact, the old way" },
+  { value: "$520k/yr", label: "cost to hire a BDR + SE team" },
+  { value: "5–8 min", label: "for Sentinel to build a custom demo" },
+  { value: "~100ms", label: "API call time, end-to-end" },
 ];
 
 export function Hero() {
@@ -150,9 +151,9 @@ export function Hero() {
             fontSize: "clamp(15px, 1.8vw, 18px)",
           }}
         >
-          Enter a SaaS platform. Sentinel finds the agencies and consultancies
-          in that ecosystem, drafts personalized outreach to each one, and
-          builds a custom demo for anyone who replies.
+          Finding the right partners, writing outreach, and building a custom
+          demo takes weeks of manual work — before anyone even sees you.
+          Sentinel collapses the entire sequence into one step. Give it a URL.
         </p>
 
         {/* CTA */}
@@ -185,20 +186,36 @@ export function Hero() {
 
         {/* Stats strip */}
         <div
-          className="animate-fade-in flex items-center justify-center flex-wrap gap-x-6 gap-y-2"
-          style={{ animationDelay: "340ms" }}
+          className="animate-fade-in grid grid-cols-2 sm:grid-cols-4 gap-px mx-auto max-w-3xl w-full rounded-2xl overflow-hidden"
+          style={{
+            animationDelay: "340ms",
+            background: "rgba(193,193,255,0.06)",
+            border: "1px solid rgba(193,193,255,0.08)",
+          }}
         >
           {STATS.map((stat, i) => (
-            <span
+            <div
               key={i}
-              className="flex items-center gap-2 font-body text-xs"
-              style={{ color: "rgba(240,238,238,0.28)" }}
+              className="flex flex-col items-center justify-center gap-1 py-5 px-4"
+              style={{ background: "rgba(8,8,8,0.85)" }}
             >
-              {i > 0 && (
-                <span style={{ color: "rgba(70,69,85,0.5)" }}>·</span>
-              )}
-              {stat}
-            </span>
+              <span
+                className="font-display font-black leading-none"
+                style={{
+                  fontSize: "clamp(20px, 2.5vw, 28px)",
+                  color: "#c1c1ff",
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                {stat.value}
+              </span>
+              <span
+                className="font-body text-[11px] text-center leading-tight"
+                style={{ color: "rgba(240,238,238,0.32)" }}
+              >
+                {stat.label}
+              </span>
+            </div>
           ))}
         </div>
       </div>

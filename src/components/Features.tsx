@@ -1,94 +1,81 @@
-import { Search, Mail, Code2 } from "lucide-react";
 import { useInView } from "../hooks/useInView";
 
-const FEATURES = [
+const REPLACEMENTS = [
   {
-    Icon: Search,
-    accent: "#c1c1ff",
-    accentRgb: "193,193,255",
-    tag: "Stage 1–3",
-    title: "Autonomous Discovery",
-    desc: "Sentinel runs Exa web search, official directory scraping, and cross-pollination across multiple sources simultaneously. Every partner is confidence-scored before you see them.",
-    detail: "4 parallel strategies · auto-deduplicated · ranked by fit",
+    role: "SDR / BDR",
+    tasks: [
+      "Prospect research",
+      "Writing personalized outreach",
+      "Email scheduling & follow-ups",
+    ],
   },
   {
-    Icon: Mail,
-    accent: "#cebdff",
-    accentRgb: "206,189,255",
-    tag: "Stage 4–5",
-    title: "Personalized Outreach",
-    desc: "Claude drafts hyper-personalized cold emails for each contact based on their firm's context and your product. Sends via Microsoft Outlook with rate limiting and bounce detection built in.",
-    detail: "Outlook Graph API · 30/min · bounce detection",
+    role: "Sales Engineer",
+    tasks: [
+      "Building custom demos",
+      "Personalizing decks",
+      "Tailoring walkthroughs per prospect",
+    ],
   },
   {
-    Icon: Code2,
-    accent: "#ffb95f",
-    accentRgb: "255,185,95",
-    tag: "Stage 6–8",
-    title: "Custom POC Generation",
-    desc: "For every interested reply, Claude writes a fully working FastAPI + React application customized to that partner's client context. Ready to send in about 4 minutes.",
-    detail: "FastAPI + React · Playwright demo video · auto-delivery",
+    role: "Video / Demo Manager",
+    tasks: [
+      "Recording demo videos",
+      "Editing & uploading",
+      "Managing demo asset delivery",
+    ],
   },
 ];
 
-type Feature = (typeof FEATURES)[0];
-
-function FeatureCard({ feature, delay }: { feature: Feature; delay: number }) {
+function Row({ item, delay }: { item: (typeof REPLACEMENTS)[0]; delay: number }) {
   const { ref, inView } = useInView();
-  const { Icon, accent, accentRgb, tag, title, desc, detail } = feature;
 
   return (
     <div
       ref={ref}
-      className={`reveal card-glow rounded-2xl p-7 flex flex-col gap-5 ${inView ? "in-view" : ""}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`reveal grid grid-cols-[1fr_2fr_auto] items-center gap-6 py-5 px-6 rounded-xl ${inView ? "in-view" : ""}`}
+      style={{
+        transitionDelay: `${delay}ms`,
+        background: "rgba(193,193,255,0.03)",
+        border: "1px solid rgba(193,193,255,0.07)",
+      }}
     >
-      {/* Icon + tag row */}
-      <div className="flex items-start justify-between">
-        <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center"
-          style={{
-            background: `rgba(${accentRgb}, 0.10)`,
-            border: `1px solid rgba(${accentRgb}, 0.18)`,
-          }}
-        >
-          <Icon size={20} style={{ color: accent }} strokeWidth={1.6} />
-        </div>
-        <span
-          className="text-[10px] font-body uppercase tracking-[0.2em] px-2.5 py-1 rounded-full"
-          style={{
-            color: accent,
-            background: `rgba(${accentRgb}, 0.07)`,
-            border: `1px solid rgba(${accentRgb}, 0.14)`,
-          }}
-        >
-          {tag}
-        </span>
-      </div>
-
-      {/* Text */}
-      <div className="flex flex-col gap-2 flex-1">
-        <h3
-          className="font-display font-bold text-lg text-white leading-snug"
-          style={{ letterSpacing: "-0.01em" }}
-        >
-          {title}
-        </h3>
-        <p
-          className="font-body text-sm leading-relaxed"
-          style={{ color: "rgba(240,238,238,0.5)" }}
-        >
-          {desc}
-        </p>
-      </div>
-
-      {/* Detail */}
-      <p
-        className="font-body text-[11px] font-medium"
-        style={{ color: "rgba(240,238,238,0.2)" }}
+      {/* Role */}
+      <span
+        className="font-display font-bold text-base text-white"
+        style={{ letterSpacing: "-0.01em" }}
       >
-        {detail}
-      </p>
+        {item.role}
+      </span>
+
+      {/* Tasks */}
+      <div className="flex flex-wrap gap-2">
+        {item.tasks.map((t) => (
+          <span
+            key={t}
+            className="font-body text-xs px-2.5 py-1 rounded-full"
+            style={{
+              color: "rgba(240,238,238,0.48)",
+              background: "rgba(240,238,238,0.04)",
+              border: "1px solid rgba(240,238,238,0.06)",
+            }}
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {/* Status */}
+      <span
+        className="font-body text-xs font-semibold px-3 py-1.5 rounded-full whitespace-nowrap"
+        style={{
+          color: "#4ade80",
+          background: "rgba(74,222,128,0.08)",
+          border: "1px solid rgba(74,222,128,0.18)",
+        }}
+      >
+        Replaced
+      </span>
     </div>
   );
 }
@@ -97,18 +84,25 @@ export function Features() {
   const { ref, inView } = useInView();
 
   return (
-    <section className="py-28 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
+    <section className="py-28 px-6 relative">
+      <div
+        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[500px]"
+        style={{
+          background:
+            "radial-gradient(ellipse at 100% 50%, rgba(93,95,239,0.05) 0%, transparent 60%)",
+        }}
+      />
+
+      <div className="max-w-4xl mx-auto relative z-10">
         <div
           ref={ref}
-          className={`reveal text-center mb-16 ${inView ? "in-view" : ""}`}
+          className={`reveal text-center mb-12 ${inView ? "in-view" : ""}`}
         >
           <p
             className="font-body text-[11px] uppercase tracking-[0.35em] mb-3"
             style={{ color: "rgba(193,193,255,0.55)" }}
           >
-            What Sentinel does
+            What Sentinel replaces
           </p>
           <h2
             className="font-display font-bold text-white"
@@ -118,16 +112,17 @@ export function Features() {
               lineHeight: 1.1,
             }}
           >
-            Three capabilities.
+            Not a tool that helps you do the work.
             <br />
-            One end-to-end pipeline.
+            <span style={{ color: "rgba(240,238,238,0.4)" }}>
+              A system that does it for you.
+            </span>
           </h2>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {FEATURES.map((f, i) => (
-            <FeatureCard key={f.title} feature={f} delay={i * 90} />
+        <div className="flex flex-col gap-3">
+          {REPLACEMENTS.map((item, i) => (
+            <Row key={item.role} item={item} delay={i * 80} />
           ))}
         </div>
       </div>

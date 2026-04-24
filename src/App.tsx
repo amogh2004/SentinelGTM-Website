@@ -11,8 +11,8 @@ export default function App() {
     <div className="min-h-screen bg-[#080808] text-[#f0eeee] font-body">
       <Nav />
       <Hero />
-      <Features />
       <Pipeline />
+      <Features />
       <HowItWorks />
       <EarlyAccess />
       <Footer />
